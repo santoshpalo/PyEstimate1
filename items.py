@@ -78,7 +78,8 @@ rammed including cost, conveyance and royalty etc. complete.\n''',
 of soil, including stoney earth, gravel and moorum etc interspread with
 boulders upto 1/2 cum size with all lifts and delifts including trimming of
 slopes and bed to design section specification and as directed by the Engineer-
-in-charge within initial lead of 5.0km including royalty and labour charges for loading.\n''',
+in-charge within initial lead of 5.0km including royalty and labour charges
+for loading.\n''',
 'vitrified':'''\nSupplying, fitting and fixing vitrified tile in floors of size
 600mm x 600mm of approved make with application of cement mortar bed
 of required thickness and filling joints with white cement of approved quality
@@ -95,7 +96,7 @@ on new work to give an even shade exculding cost of paint\n''',
 rammed including cost, conveyance and royalty etc. complete.\n''',
 'subbase':'''Labour for laying sub-base in layers not exceeding 100mm watering and
 compacting to the required density in O.M.C with PRR but excluding cost and
-conveyance of sub base materials''',
+conveyance of sub base materials\n''',
 'gradeI':'''\nLabour for spreading metal and packing the voids with small stones and hand
 packing the same to proper camber including conveying spreading of filler 
 materials and filling the interstices by spreading the same over the surface,

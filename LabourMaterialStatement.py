@@ -271,28 +271,28 @@ if __name__ == "__main__":
     rate = pd.Series([200,220,240,260,622,ls1.z['total cost'][2]-27.5,ls1.z['total cost'][9]-98.9,ls1.z['total cost'][11]-98.9,ls1.z['total cost'][1],75,249,129,35,ls1.z['total cost'][3]-27.5,ls1.z['total cost'][8]-98.9,ls1.z['total cost'][10]-98.9,240,177,66,17.25,665,ls1.z['total cost'][7]-98.9,ls1.z['total cost'][13]-0,429.00,387.00],
                  index=['u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','binding wire','paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','white cement','vitrified tile','stone','fly ash bricks','floor tile','wall tile'])
 
-    a = material_labour('bmfp',0)
+    a = material_labour('bmfp',4.88)
     b = material_labour('rcc',0)
-    c = material_labour('cc148',0.45)
-    d = material_labour('rscscolumn',14.79)
-    e = material_labour('rscsplinth',11.36)
-    f = material_labour('efhs',5.4)
-    g = material_labour('hysd',2.53)
+    c = material_labour('cc148',0)
+    d = material_labour('rscscolumn',0)
+    e = material_labour('rscsplinth',0)
+    f = material_labour('efhs',0)
+    g = material_labour('hysd',0)
     h = material_labour('paint',0)
     i = material_labour('wpcp',0)
     j = material_labour('12cp(1:6)',0)
-    k = material_labour('sandfill',0.45)
+    k = material_labour('sandfill',0)
     l = material_labour('asf(1:2:4)',0)
     m = material_labour('16cp(1:6)',0)
-    n = material_labour('rcc M-25',3.06)
-    o = material_labour('rscsslab',8.04)
+    n = material_labour('rcc M-25',0)
+    o = material_labour('rscsslab',0)
     p = material_labour('rscswalls',0)
-    q = material_labour('20cp(1:4)',11.36)
+    q = material_labour('20cp(1:4)',0)
     r = material_labour('cc136',0)
     s = material_labour('cc124',0)
     t = material_labour('rscslintel',0)
-    u = material_labour('20cp(1:6)',0)
-    v = material_labour('6cp(1:4)',0)
+    u = material_labour('20cp(1:6)',14.4)
+    v = material_labour('6cp(1:4)',58.05)
     w = material_labour('distemper',0)
     x = material_labour('vitrified',0)
     y = material_labour('ewhs',0)
@@ -316,9 +316,18 @@ if __name__ == "__main__":
     total_cost=table1['total'].sum().round()
     table1['rate']=table1['rate'].map('Rs.{:.2f}'.format)
     table1['total']=table1['total'].map('Rs.{:.2f}'.format)
-    # z = z.drop(z.index[[0,1,2,5,7,8,11,15,18,20,22,23,24,25,28,29]])
+    #===========================================================================
+    # ram = z.drop(z['quantity'] != 0)
+    #===========================================================================
+    #===========================================================================
     # z = z.drop(['bricks','paint','primer','wpcp','chips12','distemper','white cement','vitrified tile','floor tile','wall tile','stone'],axis=1)
-    # table1=table1.drop(table1.index[[6,8,10,11,12,18,19,20,21,23,24]])
+    # table1=table1.drop(table1['quantity']== 0)
+    #===========================================================================
 
 
-    print (table1,'\n',z,'The total cost =','Rs.{:.2f}'.format(total_cost))
+    print (table1[table1['quantity']!=0],'\n',z[z['u/s']!=0].dropna(axis=1,how='all'),'The total cost =','Rs.{:.2f}'.format(total_cost))
+    
+    
+    
+    
+    

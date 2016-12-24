@@ -28,7 +28,7 @@ if __name__ == "__main__":
                          ['plinth bend long',2*4,8.55+.3,0.89],
                          ['plinth bend short',3*4,3.95,0.89],
                          ['stirrups',150,0.87,0.395]])
-    reinf.reinforcement()
+    print(reinf.reinforcement()['y0'])
     print('\n\t\t\t\t\t1.75q @ \u20B9 4534.46 = \u20B9 7,935.00\n')
     print(it.items['rscs_plinth'])
     plinth_centering = cl.Quantity([['plinth bend',2,28.05-.25,.25]])

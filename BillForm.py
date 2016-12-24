@@ -1,4 +1,8 @@
 import pandas as pd
+pd.set_option('max_colwidth', 0)
+pd.set_option('display.expand_frame_repr', False)
+pd.set_option('display.precision', 2)
+
 
 d = {'efhs':'Excavation of foundation in h/s',
      'ewhs':'Earth work in hard soil',
@@ -18,6 +22,8 @@ d = {'efhs':'Excavation of foundation in h/s',
      'slab':'Rigid/smooth centering shuttering slab',
      'beam':'Rigid/smooth centering shuttering beam',
      'plinth':'Rigidsmooth centeringshuttering plint',
+     'lintel':'Rigidsmooth centeringshuttering lintel',
+     'wall':'Rigidsmooth centeringshuttering wall',
      'hysd':'HYSD bar Reinforcement works in R.C.C.',
      'w_tile':'Cost of ceramic glazed wall tiles',
      'cess':'Cess for welfare of labourers',
@@ -25,7 +31,8 @@ d = {'efhs':'Excavation of foundation in h/s',
      'display':'Cost of Display Board and photograph',
      'fill_sand':'Filling sand, watering & ramming',
      'vibrator':'Hire & Running of [late vibrator',
-     'bmfp':'C.B. Brick masonry in c.m.(1:6) in F&P'
+     'bmfp':'F.A. Brick masonry in c.m.(1:6) in F&P',
+     'bmss':'F.A. Brick masonry in c.m.(1:6) in S/S'
      
      
                }
@@ -73,31 +80,34 @@ if __name__ == "__main__":
     print('Date___________\t\t\t\t\t\tDate_______')
     print('\tTo be used for payment for work (Supplies actually measured)')
     print('-'*80)
-    print('Case Record No/Year:-111(2013-14)')
-    print('Name of work:-Construction. of community centre building at kaudiamunda')
-    print('Head of Account:-W.O.D.C.(2013-14)spl. Grant')
-    print('Estimated Cost:-\u20B92,00,000.00')
-    print('Serial number of this bill:-2nd F / A bill')
-    print('Date of commencement of the work:-____________________________')
-    print('Date of completion of the work:-______________________________')
+    print('Case Record No/Year:-127(2016-17)')
+    print('''Name of work:-Construction of C.C. road from R.D. road to
+    Harijan Pada, Sankara.''')
+    print('Head of Account:-Biju K.B.K.(2016-17)')
+    print('Estimated Cost:-\u20B93,00,000.00')
+    print('Serial number of this bill:-1st F / A bill')
+    print('Date of commencement of the work:-______________\tM.B. No. :-563')
+    print('Date of completion of the work:-________________\tPage No. :-(193-200)')
     print('Name of the executant/V.L.L.:-Departmental\n')
     print('\t\tACCOUNT OF WORK DONE OR SUPPLY MADE')
     print('-'*80)
-    bill = BillForm([[5.4,d['efhs'],'cum',103.2],
-                     [0.45,d['fill_sand'],'cum',302.62],
-                     [0.45,d['cc(1:4:8)'],'cum',3059.86],
-                     [3.06,d['m20'],'cum',4308.24],
-                     [2.53,d['hysd'],'qtl',4534.45],
-                     [11.36,d['20cp'],'sqm',140.56],
-                     [2.88,d['plinth'],'sqm',82.05],
-                     [14.79,d['beam'],'sqm',462.1],
-                     [8.04,d['slab'],'sqm',305.67],
+    bill = BillForm([[6.4,d['efhs'],'cum',103.2],
+                     [40.07,d['fill_sand'],'cum',256.62],
+                     [36.92,d['cc(1:3:6)'],'cum',3397.01],
+                     [44.1,d['wall'],'sqm',387.08],
+                     [22.51,d['plinth'],'sqm',82.08],
+                     [26.88,d['cc(1:2:4)'],'cum',4740.01],
                      
-
+                     [10.75,d['vibrator'],'hr',104],
                      
                      
-
-                    
+                     [29.4,'Earthwork in mechanical means','cum',118.9],
+                     [1,d['cess'],'',3000],
+                     [1,d['contingency'],'',3000],
+                       [1,d['display'],'no',1500],
+                       [35.44,'diff cost of c.b.g & h.b.g metal','cum',238]
+                     
+                     ] )            
                     
                     
                     #===========================================================
@@ -118,18 +128,32 @@ if __name__ == "__main__":
                     # [4.18,'cost of HYSD bar','qnt',4000],
                     #===========================================================
                     
-                    [1,d['cess'],'',380],
+                    #===========================================================
+                    # [1,d['cess'],'',380],
+                    #===========================================================
                     #===========================================================
                     # [1,d['contingency'],'',655],
                     #===========================================================
                     
-                    ])
+                    
     bill.body()
-    x = deduction([['E.G.B.',98],
-                   ['VAT',169],
-                   ['Royalty',365],
-                   ['Cess',380],
-                   ['W.C.',0]])
+    #===========================================================================
+    # print('\t\t\t\tAdd amount of 1st R / A bill = \u20B941,016.00')
+    # print('\t\t\t\t\t\tTotal Amount = \u20B91,00,019.00')
+    #===========================================================================
+    print('\t\t\t\tTotal Amount limited to = \u20B93,00,000.00')
+    #===========================================================================
+    # print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B941,016.00')
+    # print('\t\t\t\tAmount of 2nd R / A bill = \u20B958984.00')
+    # print('\t\t\t\tDeduct less amount @ .02 % = \u20B9223.00')
+    # print('\t\t\t\tGross payable amount =\u20B911,17,160.00    ')
+    #===========================================================================
+    x = deduction([['E.G.B.',1285],
+                   ['VAT',2773],
+                   ['Royalty',12060],
+                   ['Cess',3000],
+                   ['W.C.',3000],
+                   ['Income Tax',0]])
     x.deduct()
     print('-'*80)
     print('''\tThe full name of the work as given in the estimate should
@@ -142,8 +166,8 @@ should be an entry in column 6 also in on other case should any entries
 be made in column 6''')
     print('\t\t\tCERTIFICATE AND SIGNATURE')
     print('\t\t\t','-'*24)
-    print('''The measurements were made by me on 3/11/2016 and are recorded at pages(63-66)
-of the measurement book no.569 . No advance payment has been made previously with
+    print('''The measurements were made by me on _______ and are recorded at pages(______) of
+the measurement book no.___ . No advance payment has been made previously with
 measurement the work has been done with due deligence in approved specification.''')
     print('\n\n\n\tExecutant\tAssistant Engineer\tJunior Engineer\n')
     print('\t\t\tMEMORANDUM OF PAYMENT')

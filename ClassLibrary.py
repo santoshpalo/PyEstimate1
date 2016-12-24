@@ -54,8 +54,7 @@ class Quantity(object):
         
         table['total']=table['total'].map('{:.2f}m'.format)
         
-        print (table,'\nTotal cente line length of the building =',
-                '{:.2f}m'.format(total_centre_line))
+        return {'y0':table,'y1':total_centre_line,'y2':total_centre_line}
     def reinforcement(self):
         table = pd.DataFrame(self.data,columns=self.reinforcementC,index = range(1,len(self.data)+1))
         table['total']=(table['no']*table['length']).round(2)
@@ -64,8 +63,7 @@ class Quantity(object):
         table['length']=table['length'].map('{:.2f}m'.format)
         table['weight']=table['weight'].map('{:.2f}kg'.format)        
         table['total']=table['total'].map('{:.2f}m'.format)        
-        print (table,'\n\t\t\t\t\t',
-                '{:.2f}kg'.format(round(total_weight)))
+        return{'y0':table[table['coefficient'] == .395],'y1': total_weight, 'y2':table}
     def ms_door_window(self):
         table = pd.DataFrame(self.data,columns=self.vAreaC,index = range(1,len(self.data)+1))
         table['weight']=(table['no']*table['length']*table['height']*40.35).round(2)

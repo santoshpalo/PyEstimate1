@@ -51,13 +51,13 @@ def conveyance_brick(x):
         return (1010.8 + 45 * 41.4 + (x - 50) * 33.3) / 2000
 
 
-m = [['bricks', 1, 'local', 15, 3.38, 0], ['sand', 1, 'Mahanadi', 10, 55.0, 27.5],
-     ['course sand', 1, 'Mahanadi', 10, 48.0, 27.5],
+m = [['bricks', 1, 'local', 15, 3.38, 0], ['sand', 1, 'Mahanadi', 10, 55.0, 38.4],
+     ['course sand', 1, 'Mahanadi', 10, 48.0, 38.4],
      ['cement', 1, 'Binka', 15, 622.00, 0], ['HYSD bar', 1, 'Binka', 15, 4000, 0], ['wood', 1, 'local', 5, 0, 0],
-     ['stone', 1, 'Singijuba', 20, 254.0, 98.9], ['10mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 98.9],
-     ['12mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 98.9],
-     ['20mm c.b.g. chips', 1, 'Singijuba', 30, 1130, 98.9], ['40mm h.g. metal', 1, 'Singijuba',20, 634, 98.9],
-     ['63mm h.g. metal', 1, 'Singijuba',20, 543, 98.9],['moorum',1,'Local',10,50,27.5],['fly ash bricks',1,'local',15,4.2,0]]
+     ['stone', 1, 'Singijuba', 20, 254.0, 138.3], ['10mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 138.3],
+     ['12mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 138.3],
+     ['20mm c.b.g. chips', 1, 'Singijuba', 30, 1130, 138.3], ['40mm h.g. metal', 1, 'Singijuba',30, 780, 138.3],
+     ['63mm h.g. metal', 1, 'Singijuba',20, 543, 138.3],['moorum',1,'Local',10,50,38.4],['fly ash bricks',1,'local',15,4.2,0]]
 
 
 def cost_of_material(mm, i, c=['Description', 'qty', 'quarry', 'lead', 'basic cost', 'Royalty']):
