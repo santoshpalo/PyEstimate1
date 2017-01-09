@@ -488,12 +488,10 @@ cost, conveyance and royalty etc. complete. '''
 #Tile flooring
 def Tile(x,c=['quantity','rate']):
     if x == 1:
-        t = '''Fixing tiles in floors treads or steps and landing
-on 25mm thick bed of cement mortar 1:1
-(1cement : 1sand) jointed with neat cement
-slury mixed with pigment to match the shades
-of the tiles including rubbing and polishing
-complete excluding cost of precast tiles'''
+        t = '''Fixing tiles in floors treads or steps and landing on 25mm thick bed of
+cement mortar 1:1 (1cement : 1sand) jointed with neat cement slury mixed with
+pigment to match the shades of the tiles including rubbing & polishing complete
+excluding cost of precast tiles'''
         d1 = {'quantity':1.857+0.44,'rate':ls1.z['total cost'][4]}
         d2 = {'quantity':0.13,'rate':ls1.z['total cost'][2]}
         d3 = {'quantity':[2.16,2.16],'rate':[260,us]}
@@ -501,11 +499,9 @@ complete excluding cost of precast tiles'''
         i2 = ['sand']
         i3 = ['Mason I','Mulia']
     elif x ==2:
-        t = '''Fixing tiles in dados skirting and risers of steps
-on 12mm thick cement plaster (1:3) jointed
-with neat cement slurry mixed with pigments to
-match the shade of the tiles including rubbing
-and polishing complete excluding cost of
+        t = '''Fixing tiles in dados skirting and risers of steps on 12mm thick cement
+plaster (1:3) jointed with neat cement slurry mixed with pigments to match the
+shade of the tiles including rubbing and polishing complete excluding cost of
 precast tiles.'''
         d1 = {'quantity': 0.715+0.66, 'rate': ls1.z['total cost'][4]}
         d2 = {'quantity': 0.15, 'rate': ls1.z['total cost'][2]}
@@ -964,14 +960,11 @@ def opening(m,i,c = ['Description','no','dimension1','dimension2']):
     total_area = round(table1['area'].sum(), 2)
     return table1, total_area
 def vitrifiedtile(x):
-    t = '''Supplying, fitting and fixing vitrified tile in
-floors of size 600mm x 600mm of approved
-make with application of polymer modified
-cement based water resistant adhesive bed
-of required thickness of 10mm and filling
-joints with epoxy grout of approved quality
-including cost of all materials, labour T&P
-etc required for the work.'''
+    t = '''Supplying, fitting and fixing vitrified tile in floors of size 600mm x 600mm of
+approved make with application of polymer modified cement based water resistant
+adhesive bed of required thickness of 10mm and filling joints with epoxy grout
+of approved quality including cost of all materials, labour T&P etc required for
+the work.'''
     d1 = {'quantity': [2.16,5.5,2.16], 'rate': [us,220, 260]}
     d2 = {'quantity': [90], 'rate': 20}
     d3 = {'quantity': [10], 'rate': 665}
@@ -1002,13 +995,10 @@ etc required for the work.'''
         table4.tamount/10) + color.END)
 
 def vitrifiedtile1(x):
-    t = '''Supplying, fitting and fixing vitrified tile in
-    floors of size 600mm x 600mm of approved
-    make with application of cement mortar bed
-    of required thickness and filling
-    joints with white cement of approved quality
-    including cost of all materials, labour T&P
-    etc required for the work.'''
+    t = '''Supplying, fitting and fixing vitrified tile in floors of size 600mm x 600mm of
+approved make with application of cement mortar bed of required thickness and
+filling joints with white cement of approved quality including cost of all
+materials, labour T&P etc required for the work.'''
     d1 = {'quantity': [2.16, 2.16], 'rate': [us, 260]}
     d2 = {'quantity': [1.074], 'rate': ls1.z['total cost'][4]}
     d3 = {'quantity': [10], 'rate': 665}
