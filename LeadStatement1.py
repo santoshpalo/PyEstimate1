@@ -5,6 +5,8 @@ import numpy as np
 # import LeadStatement as ls
 import math as mt
 import pandas as pd
+royalty_sand=38.4
+royalty_stone=138.3
 
 pd.set_option('max_colwidth', 0)
 pd.set_option('display.expand_frame_repr', False)
@@ -51,13 +53,13 @@ def conveyance_brick(x):
         return (1010.8 + 45 * 41.4 + (x - 50) * 33.3) / 2000
 
 
-m = [['bricks', 1, 'local', 15, 3.38, 0], ['sand', 1, 'Mahanadi', 10, 55.0, 38.4],
-     ['course sand', 1, 'Mahanadi', 10, 48.0, 38.4],
+m = [['bricks', 1, 'local', 15, 3.38, 0], ['sand', 1, 'Mahanadi', 10, 55.0,royalty_sand],
+     ['course sand', 1, 'Mahanadi', 10, 48.0,royalty_sand],
      ['cement', 1, 'Binka', 15, 622.00, 0], ['HYSD bar', 1, 'Binka', 15, 4000, 0], ['wood', 1, 'local', 5, 0, 0],
-     ['stone', 1, 'Singijuba', 20, 254.0, 138.3], ['10mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 138.3],
-     ['12mm c.b.g. chips', 1, 'Singijuba', 30, 1150, 138.3],
-     ['20mm c.b.g. chips', 1, 'Singijuba', 30, 1130, 138.3], ['40mm h.g. metal', 1, 'Singijuba',30, 780, 138.3],
-     ['63mm h.g. metal', 1, 'Singijuba',20, 543, 138.3],['moorum',1,'Local',10,50,38.4],['fly ash bricks',1,'local',15,4.2,0]]
+     ['stone', 1, 'Singijuba', 20, 254.0,royalty_stone], ['10mm c.b.g. chips', 1, 'Singijuba', 30, 1150, royalty_stone],
+     ['12mm c.b.g. chips', 1, 'Singijuba', 30, 1150,royalty_stone],
+     ['20mm c.b.g. chips', 1, 'Singijuba', 30, 1130,royalty_stone], ['40mm h.g. metal', 1, 'Singijuba',20, 634,royalty_stone],
+     ['63mm h.g. metal', 1, 'Singijuba',20, 543, royalty_stone],['moorum',1,'Local',10,50,royalty_sand],['fly ash bricks',1,'local',15,4.2,0]]
 
 
 def cost_of_material(mm, i, c=['Description', 'qty', 'quarry', 'lead', 'basic cost', 'Royalty']):
