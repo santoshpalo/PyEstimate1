@@ -80,32 +80,37 @@ if __name__ == "__main__":
     print('Date___________\t\t\t\t\t\tDate_______')
     print('\tTo be used for payment for work (Supplies actually measured)')
     print('-'*80)
-    print('Case Record No/Year:-127(2016-17)')
-    print('''Name of work:-Construction of C.C. road from R.D. road to
-    Harijan Pada, Sankara.''')
-    print('Head of Account:-Biju K.B.K.(2016-17)')
+    print('Case Record No/Year:-244(2016-17)')
+    print('''Name of work:-Construction of C.C. road inside Baunsuni weekly market
+''')
+    print('Head of Account:-G.G.Y.(2016-17)')
     print('Estimated Cost:-\u20B93,00,000.00')
     print('Serial number of this bill:-1st F / A bill')
-    print('Date of commencement of the work:-______________\tM.B. No. :-563')
-    print('Date of completion of the work:-________________\tPage No. :-(193-200)')
+    print('Date of commencement of the work:-______________\tM.B. No. :-575')
+    print('Date of completion of the work:-________________\tPage No. :-(11-15)')
     print('Name of the executant/V.L.L.:-Departmental\n')
     print('\t\tACCOUNT OF WORK DONE OR SUPPLY MADE')
     print('-'*80)
-    bill = BillForm([[6.4,d['efhs'],'cum',103.2],
-                     [40.07,d['fill_sand'],'cum',256.62],
-                     [36.92,d['cc(1:3:6)'],'cum',3397.01],
-                     [44.1,d['wall'],'sqm',387.08],
-                     [22.51,d['plinth'],'sqm',82.08],
-                     [26.88,d['cc(1:2:4)'],'cum',4740.01],
+    bill = BillForm([[3.85,d['efhs'],'cum',103.2],
+                     [30.81,d['fill_sand'],'cum',313.52],
+                     [36.54,d['cc(1:3:6)'],'cum',3700.47],
+                     [30.12,d['cc(1:2:4)'],'cum',4814.94],
                      
-                     [10.75,d['vibrator'],'hr',104],
+                     [32.88,d['plinth'],'sqm',82.08],
                      
                      
-                     [29.4,'Earthwork in mechanical means','cum',118.9],
+                     [12.05,d['vibrator'],'hr',106],
+                     
+                     
+                     #==========================================================
+                     # [29.4,'Earthwork in mechanical means','cum',118.9],
+                     #==========================================================
                      [1,d['cess'],'',3000],
                      [1,d['contingency'],'',3000],
                        [1,d['display'],'no',1500],
-                       [35.44,'diff cost of c.b.g & h.b.g metal','cum',238]
+                       #========================================================
+                       # [35.44,'diff cost of c.b.g & h.b.g metal','cum',238]
+                       #========================================================
                      
                      ] )            
                     
@@ -148,9 +153,9 @@ if __name__ == "__main__":
     # print('\t\t\t\tDeduct less amount @ .02 % = \u20B9223.00')
     # print('\t\t\t\tGross payable amount =\u20B911,17,160.00    ')
     #===========================================================================
-    x = deduction([['E.G.B.',1285],
-                   ['VAT',2773],
-                   ['Royalty',12060],
+    x = deduction([['E.G.B.',1267],
+                   ['VAT',2927],
+                   ['Royalty',10977],
                    ['Cess',3000],
                    ['W.C.',3000],
                    ['Income Tax',0]])
