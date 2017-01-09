@@ -29,8 +29,10 @@ false works and dismantling them after casting including cost of materials
 complete in ground floor- roof slab and chajja\n''',
 '20cp(1:4)':'''\n20mm, thick cement mortar plaster (1:4) on roof slab top as grading
 plaster including cost, conveyance and royalty etc. complete. \n''',
-'6cp(1:4)':'''\n6mm, thick cement mortar plaster (1:4) on R.C.C. works including
-closely deep chipping and slurry treatment plaster including cost, conveyance and
+'20cp(1:6)':'''\n20mm, thick cement mortar plaster (1:6) on stone masonry walls
+plaster including cost, conveyance and royalty etc. complete. \n''',
+'6cp(1:4)':'''\n6mm, thick cement mortar plaster (1:4) on R.C.C. works including closely
+deep chipping and slurry treatment plaster including cost, conveyance and
 royalty etc. complete. \n''',
 
 'bmsscb':'''\nBrick work with clamp burnt bricks 25cm x 12cm x 8cm size having crushing
