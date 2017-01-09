@@ -15,7 +15,7 @@ class color:
    BOLD = '\033[1m'
    UNDERLINE = '\033[4m'
    END = '\033[0m'
-
+us =200
 
 #import LeadStatement as ls
 import LeadStatement1 as ls1
@@ -200,9 +200,9 @@ def area(t,r,d,i,c=['area']):
     print (t,'\n',table1,'\n\t\t\t\t\t\t','{:.2f}sqm'.format(table1.tquantity),'@','Rs.{:.2f}'.format(r),'=',color.BOLD+'Rs.{:.2f}'.format(round(r*table1.tquantity))+color.END)
 def foundation(x):
     if x == 1:
-        table1=pd.DataFrame({'quantity':[0.43*1.2],'rate':[200]},index=['unskilled labour'],columns=['quantity','rate'])
+        table1=pd.DataFrame({'quantity':[0.43*1.2],'rate':[us]},index=['unskilled labour'],columns=['quantity','rate'])
     else:
-        table1 = pd.DataFrame({'quantity': [0.43], 'rate': [200]}, index=['unskilled labour'],
+        table1 = pd.DataFrame({'quantity': [0.43], 'rate': [us]}, index=['unskilled labour'],
                               columns=['quantity', 'rate'])
 
     table1['amount']=table1['quantity']*table1['rate'].round(2)
@@ -233,7 +233,7 @@ def concrete(l):
     if l==1:
         t='''Cement concretre (1:4:8) using 40mm size granite metal
 including cost,conveyance and royalty etc. complete'''
-        d1={'quantity':[3.9,0.18],'rate':[200,240]}
+        d1={'quantity':[3.9,0.18],'rate':[us,240]}
         d2={'quantity':[1.72],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.96,0.48],'rate':[ls1.z['total cost'][11],ls1.z['total cost'][2]]}
         i1=['unskilled labour','mason II']
@@ -242,7 +242,7 @@ including cost,conveyance and royalty etc. complete'''
     elif l==2:
         t='''Cement concretre (1:3:6) using 40mm size granite metal
 including cost,conveyance and royalty etc. complete'''
-        d1={'quantity':[3.9,0.18],'rate':[200,240]}
+        d1={'quantity':[3.9,0.18],'rate':[us,240]}
         d2={'quantity':[2.29],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.96,0.48],'rate':[ls1.z['total cost'][11],ls1.z['total cost'][2]]}
         i1=['unskilled labour','mason II']
@@ -251,7 +251,7 @@ including cost,conveyance and royalty etc. complete'''
     elif l==3:
         t='''Cement concretre (1:2:4) using 12mm size granite chips
 including cost,conveyance and royalty etc. complete'''
-        d1={'quantity':[4.6,0.68],'rate':[200,240]}
+        d1={'quantity':[4.6,0.68],'rate':[us,240]}
         d2={'quantity':[3.23],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.9,0.45],'rate':[ls1.z['total cost'][9],ls1.z['total cost'][2]]}
         i1=['unskilled labour','mason II']
@@ -260,15 +260,24 @@ including cost,conveyance and royalty etc. complete'''
     elif l==4:
         t='''Cement concretre (1:1.5:3) using 12mm size granite chips
 including cost,conveyance and royalty etc. complete'''
-        d1={'quantity':[4.6,0.68],'rate':[200,240]}
+        d1={'quantity':[4.6,0.68],'rate':[us,240]}
         d2={'quantity':[4.29],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.9,0.45],'rate':[ls1.z['total cost'][9],ls1.z['total cost'][2]]}
         i1=['unskilled labour','mason II']
         i2=['cement']
         i3=['12mm h.g. chips','fine sand']
+    elif l==5:
+        t='''Cement concretre (1:5:10) using 40mm size granite metal
+including cost,conveyance and royalty etc. complete'''
+        d1={'quantity':[3.9,0.18],'rate':[us,240]}
+        d2={'quantity':[1.38],'rate':[ls1.z['total cost'][4]]}
+        d3={'quantity':[0.96,0.48],'rate':[ls1.z['total cost'][11],ls1.z['total cost'][2]]}
+        i1=['unskilled labour','mason II']
+        i2=['cement']
+        i3=['40mm h.g. metal','fine sand']
     else:
         t=''
-        d1={'quantity':[0],'rate':[200,240]}
+        d1={'quantity':[0],'rate':[us,240]}
         d2={'quantity':[0],'rate':[ls1.z['total cost'][5]]}
         d3={'quantity':[0],'rate':[ls1.z['total cost'][10],ls1.z['total cost'][0]]}
         i1=['unskilled labour','mason II']
@@ -412,38 +421,38 @@ def plaster(t):
     if t==1:
         t1= '''12mm thick plaster with c.m.(1:6) including cost, conveyance
 and royalty etc. complete.'''
-        d1={'quantity':[0.12,0.14],'rate':[200,240]}
+        d1={'quantity':[0.12,0.14],'rate':[us,240]}
         d2={'quantity':[.0358],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[.015],'rate':[ls1.z['total cost'][2]]}
 
     elif t == 2:
         t1='''16mm thick plaster with c.m.(1:6) including cost, conveyance
 and royalty etc. complete. '''
-        d1={'quantity':[0.24,0.16],'rate':[200,240]}
+        d1={'quantity':[0.24,0.16],'rate':[us,240]}
         d2={'quantity':[.043],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[.018],'rate':[ls1.z['total cost'][2]]}
     elif t==3:
         t1='''6mm thick plaster with c.m.(1:4) including cost, conveyance
 and royalty etc. complete. '''
-        d1={'quantity':[0.15,0.14],'rate':[200,240]}
+        d1={'quantity':[0.17,0.14],'rate':[us,240]}
         d2={'quantity':[.0372],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[.0075],'rate':[ls1.z['total cost'][2]]}
     elif t==4:
         t1='''20mm thick plaster with c.m.(1:4) on roof top as grading plaster including
 cost, conveyance and royalty etc. complete. '''
-        d1={'quantity':[.24,.16],'rate':[200,240]}
+        d1={'quantity':[.24,.16],'rate':[us,240]}
         d2={'quantity':[.0744],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[.021],'rate':[ls1.z['total cost'][2]]}
     elif t == 5:
         t1 = '''12mm thick plaster with c.m.(1:4) including cement punning
     cost, conveyance and royalty etc. complete. '''
-        d1 = {'quantity': [0.15, 0.14], 'rate': [200, 240]}
+        d1 = {'quantity': [0.15, 0.14], 'rate': [us, 240]}
         d2 = {'quantity': [.0644], 'rate': [ls1.z['total cost'][4]]}
         d3 = {'quantity': [.0075], 'rate': [ls1.z['total cost'][2]]}
     elif t == 6:
         t1='''20mm thick plaster with c.m.(1:6) on roof top as grading plaster including
 cost, conveyance and royalty etc. complete. '''
-        d1={'quantity':[.24,.16],'rate':[200,240]}
+        d1={'quantity':[.24,.16],'rate':[us,240]}
         d2={'quantity':[.057],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[.021],'rate':[ls1.z['total cost'][2]]}
 
@@ -451,7 +460,7 @@ cost, conveyance and royalty etc. complete. '''
 
     else:
         t1=''
-        d1={'quantity':[0.0,0.0],'rate':[200,240]}
+        d1={'quantity':[0.0,0.0],'rate':[us,240]}
         d2={'quantity':[.0],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[.0],'rate':[ls1.z['total cost'][2]]}
 
@@ -487,7 +496,7 @@ of the tiles including rubbing and polishing
 complete excluding cost of precast tiles'''
         d1 = {'quantity':1.857+0.44,'rate':ls1.z['total cost'][4]}
         d2 = {'quantity':0.13,'rate':ls1.z['total cost'][2]}
-        d3 = {'quantity':[2.16,2.16],'rate':[260,200]}
+        d3 = {'quantity':[2.16,2.16],'rate':[260,us]}
         i1 = ['cement']
         i2 = ['sand']
         i3 = ['Mason I','Mulia']
@@ -500,7 +509,7 @@ and polishing complete excluding cost of
 precast tiles.'''
         d1 = {'quantity': 0.715+0.66, 'rate': ls1.z['total cost'][4]}
         d2 = {'quantity': 0.15, 'rate': ls1.z['total cost'][2]}
-        d3 = {'quantity': [3.25, 3.25], 'rate': [260, 200]}
+        d3 = {'quantity': [3.25, 3.25], 'rate': [260, us]}
         i1 = ['cement']
         i2 = ['sand']
         i3 = ['Mason I', 'Mulia']
@@ -529,7 +538,7 @@ precast tiles.'''
     print ('\n',t,'\n',table4,'\n\tCost for 1.00sqm of precast ceramic glazed tile flooring= ',color.BOLD+'Rs.{:.2f}'.format(table4.tamount/10)+color.END)
 #Water proofing cement paint
 def waterproofpaint():
-    table1 = pd.DataFrame({'quantity': [.22,.32], 'rate': [200, 260]}, index=['unskilled labour', 'mason I'],
+    table1 = pd.DataFrame({'quantity': [.22,.32], 'rate': [us, 260]}, index=['unskilled labour', 'mason I'],
                           columns=['quantity', 'rate'])
 
     table1['amount'] = table1['quantity'] * table1['rate'].round(2)
@@ -540,7 +549,7 @@ def waterproofpaint():
 
     table1['rate'] = table1['rate'].map('Rs.{:.2f}'.format)
     table1['amount'] = table1['amount'].map('Rs.{:.2f}'.format)
-    print ('\n', 'Painting 2 coats over a coat of priming (only labour charges)', '\n', table1, '\n\tCost for 1.00sqm of water proofing cement paint over new plaster works= ', color.BOLD + 'Rs.{:.2f}'.format(
+    print ('\n', 'Finishing walls with water proofing c.p. (only labour charges)', '\n', table1, '\n\tCost for 1.00sqm of water proofing c.p. over new plaster works= ', color.BOLD + 'Rs.{:.2f}'.format(
         table1.tamount / 10) + color.END)
 
 
@@ -559,7 +568,7 @@ def paint(t,d1,i1,c=['quantity','rate']):
     table1['amount']=table1['amount'].map('Rs.{:.2f}'.format)
     print ('\n',t,'\n',table1,'\n\tCost for 1.00sqm of precast ceramic glazed tile flooring= ',color.BOLD+'Rs.{:.2f}'.format(table1.tamount/10)+color.END)
 def painting():
-    table1=pd.DataFrame({'quantity':[1.6,1.75],'rate':[200,260]},index=['unskilled labour','mason I'],columns=['quantity','rate'])
+    table1=pd.DataFrame({'quantity':[1.6,1.75],'rate':[us,260]},index=['unskilled labour','mason I'],columns=['quantity','rate'])
 
     table1['amount']=table1['quantity']*table1['rate'].round(2)
 
@@ -603,7 +612,7 @@ def gradedconcrete(x):
         m=0
 
 
-    table1=pd.DataFrame({'quantity':[20.0/15,0.86/15,1.5/15],'rate':[200.0,220.0,240.0]},index = ['unskilled labour','semiskilled labour','mason II'],columns=['quantity','rate'])
+    table1=pd.DataFrame({'quantity':[20.0/15,0.86/15,1.5/15],'rate':[us,220.0,240.0]},index = ['unskilled labour','semiskilled labour','mason II'],columns=['quantity','rate'])
     table2=pd.DataFrame({'quantity':[m],'rate':[ls1.z['total cost'][4]]},index = ['cement'],columns=['quantity','rate'])
     table3=pd.DataFrame({'quantity':[0.54,0.36,0.45],'rate':[ls1.z['total cost'][10],ls1.z['total cost'][8],ls1.z['total cost'][2]]},index = ['20mm chips','10mm chips','sand'],columns=['quantity','rate'])
     table4=pd.DataFrame({'quantity':[0.4],'rate':[177,240]},index = ['concrete mixer','generator'],columns=['quantity','rate'])
@@ -627,7 +636,7 @@ def reinforcement():
 as per drawing and technical specification.Unit - 1 qtl Taking Output = 1 qtl'''
     table1=pd.DataFrame({'quantity':[1.05],'rate':[4000+ls1.z['conveyance'][5]]},index = ['uncoated HYSD bars'],columns=['quantity','rate'])
     table2=pd.DataFrame({'quantity':[0.8],'rate':[75.0]},index = ['binding wire'],columns=['quantity','rate'])
-    table3=pd.DataFrame({'quantity':[.8,.044,.3],'rate':[200,220,260]},index = ['unskilled labour','semiskilled labour','mason I'],columns=['quantity','rate'])
+    table3=pd.DataFrame({'quantity':[.8,.044,.3],'rate':[us,220,260]},index = ['unskilled labour','semiskilled labour','mason I'],columns=['quantity','rate'])
 
     table1['amount']=table1['quantity']*table1['rate'].round(2)
     table2['amount']=table2['quantity']*table2['rate'].round(2)
@@ -647,23 +656,23 @@ def dismantling(t):
         t1='''Dismantling and removing cement concrete including stacking the
 useful materials for reuse and removing the debris within 50m lead per 1 cum'''
         x=1
-        d= {'quantity':[1.6],'rate':[200]}
+        d= {'quantity':[1.6],'rate':[us]}
     elif t==2:
         t1='''Dismantling and removing R.C.C. columns beams slab staircase
 landing lintels including stacking the useful materials for reuse and
 removing the debris within 50m lead per 1 cum'''
         x=1
-        d= {'quantity':[1.5,1.5],'rate':[200,220]}
+        d= {'quantity':[1.5,1.5],'rate':[us,220]}
     elif t==3:
         t1='''Dismantling brick or stone masonry in lime or cement mortar above 3m.
 height including stacking the useful materials for reuse and removing
 the debris within 50m. Lead  per 1 cum Data for 2.83 cum'''
         x=2.83
-        d= {'quantity':[9,0],'rate':[200,220]}
+        d= {'quantity':[9,0],'rate':[us,220]}
     else:
         t1=''
         x=1
-        d= {'quantity':[0.0],'rate':[200]}
+        d= {'quantity':[0.0],'rate':[us]}
 
     table1=pd.DataFrame(d,index = ['unskilled labour','semiskilled mulia'],columns=['quantity','rate'])
     table1['amount']=table1['quantity']*table1['rate'].round(2)
@@ -677,7 +686,7 @@ def brickmasonry(l):
     if l==1:
         t='''Brick masonry in foundation and plinth in c.m.(1:6) using c.b. bricks
 including cost,conveyance and royalty etc. complete'''
-        d1={'quantity':[2.96,1.41,0.35],'rate':[200,240,260]}
+        d1={'quantity':[2.96,1.05,0.35],'rate':[us,240,260]}
         d2={'quantity':[0.672],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.28],'rate':[ls1.z['total cost'][2]]}
 
@@ -689,7 +698,7 @@ including cost,conveyance and royalty etc. complete'''
     elif l==2:
         t = '''Brick masonry in foundation and plinth in c.m.(1:6) using fly ash bricks
 including cost,conveyance and royalty etc. complete'''
-        d1={'quantity':[2.96,1.41,0.35],'rate':[200,240,260]}
+        d1={'quantity':[2.96,1.05,0.35],'rate':[us,240,260]}
         d2={'quantity':[0.672],'rate':[ls1.z['total cost'][4]]}
         d3={'quantity':[0.28],'rate':[ls1.z['total cost'][2]]}
 
@@ -701,7 +710,7 @@ including cost,conveyance and royalty etc. complete'''
     elif l == 3:
         t = '''Brick masonry in foundation and plinth in c.m.(1:4) using fly ash bricks
     including cost,conveyance and royalty etc. complete'''
-        d1 = {'quantity': [2.96, 1.41, 0.35], 'rate': [200, 240, 260]}
+        d1 = {'quantity': [2.96, 1.05, 0.35], 'rate': [us, 240, 260]}
         d2 = {'quantity': [1.0], 'rate': [ls1.z['total cost'][4]]}
         d3 = {'quantity': [0.28], 'rate': [ls1.z['total cost'][2]]}
 
@@ -712,7 +721,7 @@ including cost,conveyance and royalty etc. complete'''
         i4 = ['c.b. bricks']
 
     else:
-        d1={'quantity':[0,0,0],'rate':[200,240,260]}
+        d1={'quantity':[0,0,0],'rate':[us,240,260]}
         d2={'quantity':[0],'rate':[ls1.z['total cost'][5]]}
         d3={'quantity':[0],'rate':[ls1.z['total cost'][8],ls1.z['total cost'][0]]}
 
@@ -760,7 +769,7 @@ def sandfilling():
 
     t1= '''Filling sand in the foundation and plinth well watered and rammed
 including cost, conveyance and royalty etc. complete. '''
-    d1={'quantity':[0.1236],'rate':[200]}
+    d1={'quantity':[0.1236],'rate':[us]}
 
     d3={'quantity':[1],'rate':[ls1.z['total cost'][3]]}
 
@@ -901,10 +910,10 @@ def volumeTrapezoidal(m,i,r,c=['Description','no','length','top width','bottom w
 
 def moorum(x):
     if x == 1:
-        table1 = pd.DataFrame({'quantity': [2.5/2.83], 'rate': [200]}, index=['unskilled labour'],
+        table1 = pd.DataFrame({'quantity': [2.5/2.83], 'rate': [us]}, index=['unskilled labour'],
                               columns=['quantity', 'rate'])
     else:
-        table1 = pd.DataFrame({'quantity': [1/2.83], 'rate': [200]}, index=['unskilled labour'],
+        table1 = pd.DataFrame({'quantity': [1/2.83], 'rate': [us]}, index=['unskilled labour'],
                               columns=['quantity', 'rate'])
 
     table1['amount'] = table1['quantity'] * table1['rate'].round(2)
@@ -915,7 +924,7 @@ def moorum(x):
 def flooring():
     t='''Artificial stone flooring with c.c.(1:2:4) using 12mm size c.b.g. chips
 including cost,conveyance and royalty etc. complete'''
-    d1={'quantity':[.36,0.13],'rate':[200,260]}
+    d1={'quantity':[.36,0.13],'rate':[us,260]}
     d2={'quantity':[.0858],'rate':[ls1.z['total cost'][4]]}
     d3={'quantity':[0.023,0.012],'rate':[ls1.z['total cost'][9],ls1.z['total cost'][2]]}
     i1=['unskilled labour','mason I']
@@ -963,7 +972,7 @@ of required thickness of 10mm and filling
 joints with epoxy grout of approved quality
 including cost of all materials, labour T&P
 etc required for the work.'''
-    d1 = {'quantity': [2.16,5.5,2.16], 'rate': [200,220, 260]}
+    d1 = {'quantity': [2.16,5.5,2.16], 'rate': [us,220, 260]}
     d2 = {'quantity': [90], 'rate': 20}
     d3 = {'quantity': [10], 'rate': 665}
     d5 = {'quantity':1,'rate':322.8}
@@ -1000,7 +1009,7 @@ def vitrifiedtile1(x):
     joints with white cement of approved quality
     including cost of all materials, labour T&P
     etc required for the work.'''
-    d1 = {'quantity': [2.16, 2.16], 'rate': [200, 260]}
+    d1 = {'quantity': [2.16, 2.16], 'rate': [us, 260]}
     d2 = {'quantity': [1.074], 'rate': ls1.z['total cost'][4]}
     d3 = {'quantity': [10], 'rate': 665}
     d5 = {'quantity': [0.21], 'rate': ls1.z['total cost'][2]}
@@ -1036,7 +1045,7 @@ def vitrifiedtile1(x):
     print ('\n', t, '\n', table4, '\n\tCost for 1.00sqm of vitrified tile flooring = ', color.BOLD + 'Rs.{:.2f}'.format(
             table4.tamount / 10) + color.END)
 def distempering():
-    table1=pd.DataFrame({'quantity':[0.62,0.52],'rate':[200,260]},index=['unskilled labour','mason I'],columns=['quantity','rate'])
+    table1=pd.DataFrame({'quantity':[0.62,0.52],'rate':[us,260]},index=['unskilled labour','mason I'],columns=['quantity','rate'])
 
     table1['amount']=table1['quantity']*table1['rate'].round(2)
 
@@ -1052,7 +1061,7 @@ def distempering():
     print ('\n','''Distempering two coats to walls with distemper of approved shade on new
 work to give an even shade exculding cost of distemper.(only labour charges)''','\n',table1,'\n\tCost for 1.00sqm of painting over priming on new works= ',color.BOLD+'Rs.{:.2f}'.format(table1.tamount/9.3)+color.END)
 def wallpainting():
-    table1=pd.DataFrame({'quantity':[0.64,0.54],'rate':[200,260]},index=['unskilled labour','mason I'],columns=['quantity','rate'])
+    table1=pd.DataFrame({'quantity':[0.64,0.54],'rate':[us,260]},index=['unskilled labour','mason I'],columns=['quantity','rate'])
 
     table1['amount']=table1['quantity']*table1['rate'].round(2)
 
