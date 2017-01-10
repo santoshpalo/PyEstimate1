@@ -32,7 +32,9 @@ d = {'efhs':'Excavation of foundation in h/s',
      'fill_sand':'Filling sand, watering & ramming',
      'vibrator':'Hire & Running of [late vibrator',
      'bmfp':'F.A. Brick masonry in c.m.(1:6) in F&P',
-     'bmss':'F.A. Brick masonry in c.m.(1:6) in S/S'
+     'bmss':'F.A. Brick masonry in c.m.(1:6) in S/S',
+     'msdoor':'Supplying and fixing of M.S. doors and windows',
+     'paint':'Painting 2 coats over a coat of priming'
      
      
                }
@@ -81,33 +83,41 @@ if __name__ == "__main__":
     print('\tTo be used for payment for work (Supplies actually measured)')
     print('-'*80)
     print('Case Record No/Year:-244(2016-17)')
-    print('''Name of work:-Construction of C.C. road inside Baunsuni weekly market
+    print('''Name of work:-Restoration and renovation of Bhagabatgudi, Kaudiamunda
 ''')
-    print('Head of Account:-G.G.Y.(2016-17)')
+    print('Head of Account:-M.L.A.L.A.D.(2013-14)')
     print('Estimated Cost:-\u20B93,00,000.00')
-    print('Serial number of this bill:-1st F / A bill')
-    print('Date of commencement of the work:-______________\tM.B. No. :-575')
-    print('Date of completion of the work:-________________\tPage No. :-(11-15)')
+    print('Serial number of this bill:-2nd F / A bill')
+    print('Date of commencement of the work:-______________\tM.B. No. :-569')
+    print('Date of completion of the work:-________________\tPage No. :-(104-111)')
     print('Name of the executant/V.L.L.:-Departmental\n')
     print('\t\tACCOUNT OF WORK DONE OR SUPPLY MADE')
     print('-'*80)
-    bill = BillForm([[3.85,d['efhs'],'cum',103.2],
-                     [30.81,d['fill_sand'],'cum',313.52],
-                     [36.54,d['cc(1:3:6)'],'cum',3700.47],
-                     [30.12,d['cc(1:2:4)'],'cum',4814.94],
+    bill = BillForm([[25.81,d['12cp'],'sqm',84.9],
+                     [23.06,d['16cp'],'sqm',119.19],
+                     [1.15,d['cc(1:4:8)'],'cum',3052.46],
+                     [33.03,d['vTile'],'sqm',839.55],
                      
-                     [32.88,d['plinth'],'sqm',82.08],
-                     
-                     
-                     [12.05,d['vibrator'],'hr',106],
+                     [8.69,d['w_tile'],'sqm',252.21],
                      
                      
-                     #==========================================================
-                     # [29.4,'Earthwork in mechanical means','cum',118.9],
-                     #==========================================================
-                     [1,d['cess'],'',3000],
-                     [1,d['contingency'],'',3000],
-                       [1,d['display'],'no',1500],
+                     [8.69,'cost and conv. of glazed wall tiles','sqm',387],
+                     
+                     
+                    [1.5,d['msdoor'],'cum',6300],
+                    [1,'conveyance of doors and windows','',500],
+                    [24.5,d['paint'],'sqm',83.33],
+                    [194.5,d['wpcp'],'kg',12.72],
+                    [3.06,'Cost of paint','l',193],
+                    [1.32,'Red oxide primer','kg',116],
+                    [48.63,'w.p.c.p. compound','kg',35],
+                    [1,'labour charges for fixing doors','',1000],
+                    
+                     [1,d['cess'],'',550],
+                     [1,d['contingency'],'',550],
+                       #========================================================
+                       # [1,d['display'],'no',1500],
+                       #========================================================
                        #========================================================
                        # [35.44,'diff cost of c.b.g & h.b.g metal','cum',238]
                        #========================================================
@@ -142,22 +152,20 @@ if __name__ == "__main__":
                     
                     
     bill.body()
+    print('\t\t\t\tAdd amount of 1st R / A bill = \u20B945,002.00')
+    print('\t\t\t\t\t\tTotal Amount = \u20B91,05,749.00')
+    print('\t\t\t\tTotal Amount limited to = \u20B91,00,000.00')
+    print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B945,002.00')
+    print('\t\t\t\tAmount of 2nd R / A bill = \u20B954998.00')
     #===========================================================================
-    # print('\t\t\t\tAdd amount of 1st R / A bill = \u20B941,016.00')
-    # print('\t\t\t\t\t\tTotal Amount = \u20B91,00,019.00')
-    #===========================================================================
-    print('\t\t\t\tTotal Amount limited to = \u20B93,00,000.00')
-    #===========================================================================
-    # print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B941,016.00')
-    # print('\t\t\t\tAmount of 2nd R / A bill = \u20B958984.00')
     # print('\t\t\t\tDeduct less amount @ .02 % = \u20B9223.00')
     # print('\t\t\t\tGross payable amount =\u20B911,17,160.00    ')
     #===========================================================================
-    x = deduction([['E.G.B.',1267],
-                   ['VAT',2927],
-                   ['Royalty',10977],
-                   ['Cess',3000],
-                   ['W.C.',3000],
+    x = deduction([['E.G.B.',0],
+                   ['VAT',0],
+                   ['Royalty',0],
+                   ['Cess',550],
+                   ['W.C.',550],
                    ['Income Tax',0]])
     x.deduct()
     print('-'*80)
