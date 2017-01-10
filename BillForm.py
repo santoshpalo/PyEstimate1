@@ -33,7 +33,7 @@ d = {'efhs':'Excavation of foundation in h/s',
      'vibrator':'Hire & Running of [late vibrator',
      'bmfp':'F.A. Brick masonry in c.m.(1:6) in F&P',
      'bmss':'F.A. Brick masonry in c.m.(1:6) in S/S',
-     'msdoor':'Supplying and fixing of M.S. doors and windows',
+     'msdoor':'Supplying of M.S. doors and windows',
      'paint':'Painting 2 coats over a coat of priming'
      
      
@@ -82,39 +82,46 @@ if __name__ == "__main__":
     print('Date___________\t\t\t\t\t\tDate_______')
     print('\tTo be used for payment for work (Supplies actually measured)')
     print('-'*80)
-    print('Case Record No/Year:-244(2016-17)')
-    print('''Name of work:-Restoration and renovation of Bhagabatgudi, Kaudiamunda
+    print('Case Record No/Year:-431(2015-16)')
+    print('''Name of work:-Completion of C.C. building at Kaudiamunda Nuapada
 ''')
-    print('Head of Account:-M.L.A.L.A.D.(2013-14)')
-    print('Estimated Cost:-\u20B93,00,000.00')
-    print('Serial number of this bill:-2nd F / A bill')
+    print('Head of Account:-4th S.F.C.(2015-16)')
+    print('Estimated Cost:-\u20B91,60,000.00')
+    print('Serial number of this bill:-2nd R / A bill')
     print('Date of commencement of the work:-______________\tM.B. No. :-569')
-    print('Date of completion of the work:-________________\tPage No. :-(104-111)')
+    print('Date of completion of the work:-________________\tPage No. :-(94-102)')
     print('Name of the executant/V.L.L.:-Departmental\n')
     print('\t\tACCOUNT OF WORK DONE OR SUPPLY MADE')
     print('-'*80)
-    bill = BillForm([[25.81,d['12cp'],'sqm',84.9],
-                     [23.06,d['16cp'],'sqm',119.19],
-                     [1.15,d['cc(1:4:8)'],'cum',3052.46],
-                     [33.03,d['vTile'],'sqm',839.55],
+    bill = BillForm([[87.06,d['12cp'],'sqm',84.9],
+                     [88.1,d['16cp'],'sqm',119.19],
+                     #==========================================================
+                     # [1.15,d['cc(1:4:8)'],'cum',3052.46],
+                     #==========================================================
+                     [27.21,d['vTile'],'sqm',839.55],
                      
-                     [8.69,d['w_tile'],'sqm',252.21],
+                     [5.26,d['w_tile'],'sqm',252.21],
                      
                      
-                     [8.69,'cost and conv. of glazed wall tiles','sqm',387],
+                     [5.26,'cost and conv. of glazed wall tiles','sqm',387],
                      
                      
-                    [1.5,d['msdoor'],'cum',6300],
-                    [1,'conveyance of doors and windows','',500],
-                    [24.5,d['paint'],'sqm',83.33],
-                    [194.5,d['wpcp'],'kg',12.72],
-                    [3.06,'Cost of paint','l',193],
-                    [1.32,'Red oxide primer','kg',116],
-                    [48.63,'w.p.c.p. compound','kg',35],
-                    [1,'labour charges for fixing doors','',1000],
+                    [2.0,d['msdoor'],'cum',6300],
+                    [1,'conveyance of doors and windows','',1000],
+                    [12.39,d['paint'],'sqm',83.33],
+                    [202.37,d['wpcp'],'kg',12.72],
+                    [1,'labour charges for fixing doors','',1500],
+                    [4,'Cost of skylights','no',100],
+                    [0.67,'Red oxide primer','kg',116],
                     
-                     [1,d['cess'],'',550],
-                     [1,d['contingency'],'',550],
+                    [1.55,'Cost of paint','l',193],
+                    
+                    [50.59,'w.p.c.p. compound','kg',35],
+                    [.32,d['bmfp'],'cum',2964.9],
+                    
+                    
+                     [1,d['cess'],'',680],
+                     [1,d['contingency'],'',680],
                        #========================================================
                        # [1,d['display'],'no',1500],
                        #========================================================
@@ -152,20 +159,22 @@ if __name__ == "__main__":
                     
                     
     bill.body()
-    print('\t\t\t\tAdd amount of 1st R / A bill = \u20B945,002.00')
-    print('\t\t\t\t\t\tTotal Amount = \u20B91,05,749.00')
-    print('\t\t\t\tTotal Amount limited to = \u20B91,00,000.00')
-    print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B945,002.00')
-    print('\t\t\t\tAmount of 2nd R / A bill = \u20B954998.00')
+    print('\t\t\t\tAdd amount of 1st R / A bill = \u20B961825.00')
+    print('\t\t\t\t\t\tTotal Amount = \u20B91,29,487.00')
+    #===========================================================================
+    # print('\t\t\t\tTotal Amount limited to = \u20B91,00,000.00')
+    #===========================================================================
+    print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B961,825.00')
+    print('\t\t\t\tAmount of 2nd R / A bill = \u20B967,662.00')
     #===========================================================================
     # print('\t\t\t\tDeduct less amount @ .02 % = \u20B9223.00')
     # print('\t\t\t\tGross payable amount =\u20B911,17,160.00    ')
     #===========================================================================
-    x = deduction([['E.G.B.',0],
+    x = deduction([['E.G.B.',75],
                    ['VAT',0],
-                   ['Royalty',0],
-                   ['Cess',550],
-                   ['W.C.',550],
+                   ['Royalty',139],
+                   ['Cess',680],
+                   ['W.C.',680],
                    ['Income Tax',0]])
     x.deduct()
     print('-'*80)
