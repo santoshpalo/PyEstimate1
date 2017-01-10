@@ -83,43 +83,52 @@ if __name__ == "__main__":
     print('Date___________\t\t\t\t\t\tDate_______')
     print('\tTo be used for payment for work (Supplies actually measured)')
     print('-'*80)
-    print('Case Record No/Year:-431(2015-16)')
-    print('''Name of work:-Construction of A.W.C. at Sankara - VI
+    print('Case Record No/Year:-41(2016-17)')
+    print('''Name of work:-Construction of A.W.C. at Baunsuni - III
 ''')
-    print('Head of Account:-State Share + M.G.N.R.E.G.S.(2015-16)')
-    print('Estimated Cost:-\u20B95,00,000.00')
-    print('Serial number of this bill:-4th F / A bill')
+    print('Head of Account:-I.C.D.S. + M.G.N.R.E.G.S.(2015-16)')
+    print('Estimated Cost:-\u20B97,00,000.00')
+    print('Serial number of this bill:-1st R / A bill')
     print('Date of commencement of the work:-______________\tM.B. No. :-569')
-    print('Date of completion of the work:-________________\tPage No. :-(84-92)')
+    print('Date of completion of the work:-________________\tPage No. :-(78-82)')
     print('Name of the executant/V.L.L.:-Departmental\n')
     print('\t\tACCOUNT OF WORK DONE OR SUPPLY MADE')
     print('-'*80)
-    bill = BillForm([[4.75,d['msdoor'],'q',6300],
-                     [1,'conveyance of doors and windows','',1000],
-                     
-                        [147.58,d['12cp'],'sqm',81.63],
-                     [153.22,d['16cp'],'sqm',112.75],
-                     [14.35,d['6cp'],'sqm',89.08],
-                     [47.91,'asf','sqm',192.29],
-                     #==========================================================
-                     # [1.15,d['cc(1:4:8)'],'cum',3052.46],
-                     #==========================================================
-                     #==========================================================
-                     # [27.21,d['vTile'],'sqm',839.55],
-                     # 
-                     # [5.26,d['w_tile'],'sqm',252.21],
-                     # 
-                     # 
-                     # [5.26,'cost and conv. of glazed wall tiles','sqm',387],
-                     # 
-                     #==========================================================
+    bill = BillForm([[37.58,d['efhs'],'cum',122.97],
+                     [4.24,d['cc(1:3:6)'],'cum',3219.39],
+                     [6.15,d['m20'],'cum',4435.46],
+                     [12.96,d['plinth'],'sqm',82.08],
+                     [22.6,d['beam'],'sqm',462.1],
+                     [11.1,d['bmfp'],'cum',3193.2],
+                     [35.41,d['fill_sand'],'cum',277.34],
+                     [6.21,d['hysd'],'q',4435.46],
+                     [1,d['display'],'no',1500],
+                    #===========================================================
+                    #  [4.75,d['msdoor'],'q',6300],
+                    #  [1,'conveyance of doors and windows','',1000],
+                    #  
+                    # [147.58,d['12cp'],'sqm',81.63],
+                    #  [153.22,d['16cp'],'sqm',112.75],
+                    #  [14.35,d['6cp'],'sqm',89.08],
+                    #  [47.91,'asf','sqm',192.29],
+                    # 
+                    # [27.21,d['vTile'],'sqm',839.55],
+                    #   
+                    # [5.26,d['w_tile'],'sqm',252.21],
+                    #   
+                    #   
+                    # [5.26,'cost and conv. of glazed wall tiles','sqm',387],
+                    #   
+                    #===========================================================
                      
                     
                     
-                    [32.02,d['paint'],'sqm',116.95],
-                    [.65,d['bmfp'],'cum',2838.11],
-                    [57.81,d1['us'],'no',26],
-                    [1,'labour charges for fixing doors','',1500],
+                    #===========================================================
+                    # [32.02,d['paint'],'sqm',116.95],
+                    # [.65,d['bmfp'],'cum',2838.11],
+                    # [57.81,d1['us'],'no',26],
+                    # [1,'labour charges for fixing doors','',1500],
+                    #===========================================================
                     #===========================================================
                     # [202.37,d['wpcp'],'kg',12.72],
                     # 
@@ -133,7 +142,7 @@ if __name__ == "__main__":
                     #===========================================================
                     
                     
-                     [1,d['cess'],'',800],
+                     [1,d['cess'],'',1320],
                      #==========================================================
                      # [1,d['contingency'],'',680],
                      #==========================================================
@@ -174,19 +183,21 @@ if __name__ == "__main__":
                     
                     
     bill.body()
-    print('\t\t\t\tAdd amount of 4th R / A bill = \u20B94,19,905.00')
-    print('\t\t\t\t\t\tTotal Amount = \u20B95,00,037.00')
-    print('\t\t\t\tTotal Amount limited to = \u20B95,00,000.00')
-    print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B94,19,905.00')
-    print('\t\t\t\tAmount of 2nd R / A bill = \u20B980,095.00')
+    #===========================================================================
+    # print('\t\t\t\tAdd amount of 4th R / A bill = \u20B94,19,905.00')
+    # print('\t\t\t\t\t\tTotal Amount = \u20B95,00,037.00')
+    # print('\t\t\t\tTotal Amount limited to = \u20B95,00,000.00')
+    # print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B94,19,905.00')
+    # print('\t\t\t\tAmount of 2nd R / A bill = \u20B980,095.00')
+    #===========================================================================
     #===========================================================================
     # print('\t\t\t\tDeduct less amount @ .02 % = \u20B9223.00')
     # print('\t\t\t\tGross payable amount =\u20B911,17,160.00    ')
     #===========================================================================
-    x = deduction([['E.G.B.',119],
-                   ['VAT',63],
-                   ['Royalty',376],
-                   ['Cess',800],
+    x = deduction([['E.G.B.',270],
+                   ['VAT',473],
+                   ['Royalty',0],
+                   ['Cess',1320],
                    ['W.C.',0],
                    ['Income Tax',0]])
     x.deduct()
