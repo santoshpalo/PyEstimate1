@@ -219,18 +219,18 @@ def material_labour(item,q):
         table.insert(0, 'quantity', q)
         table['quantity'] = table['quantity'].map('{:.2f}cum'.format)
     elif item == 'bmfps':
-          c = ['u/s', 'masonI', 'masonII', 'cement', 'sand', 'fly ash bricks']
-          i = ['fly ash brick masonry(1:6)']
+          c = ['u/s', 'masonI', 'masonII', 'cement', 'sand', 'F.A.bricks']
+          i = ['F.A.brick masonry(1:6)']
           d = {'u/s': [2.96 * q], 'masonI': [0.35 * q], 'masonII': [1.05 * q], 'cement': [0.672 * q], 'sand': [0.28 * q],
-             'fly ash bricks': [mt.ceil(350 * q)]}
+             'F.A.bricks': [mt.ceil(350 * q)]}
           table = pd.DataFrame(d, index=i, columns=c)
           table.insert(0, 'quantity', q)
           table['quantity'] = table['quantity'].map('{:.2f}cum'.format)
     elif item == 'bmfps1':
-        c = ['u/s', 'masonI', 'masonII', 'cement', 'sand', 'fly ash bricks']
-        i = ['fly ash brick masonry(1:4)']
+        c = ['u/s', 'masonI', 'masonII', 'cement', 'sand', 'F.A.bricks']
+        i = ['F.A.brick masonry(1:4)']
         d = {'u/s': [2.96 * q], 'masonI': [0.35 * q], 'masonII': [1.05 * q], 'cement': [1.00 * q], 'sand': [0.28 * q],
-             'fly ash bricks': [mt.ceil(350 * q)]}
+             'F.A.bricks': [mt.ceil(350 * q)]}
         table = pd.DataFrame(d, index=i, columns=c)
         table.insert(0, 'quantity', q)
         table['quantity'] = table['quantity'].map('{:.2f}cum'.format)
@@ -275,27 +275,27 @@ def material_labour(item,q):
         pass
     return table
 if __name__ == "__main__":
-    rate = pd.Series([174,220,240,260,ls1.z['total cost'][4],ls1.z['total cost'][2]-38.4,ls1.z['total cost'][9]-138.3,ls1.z['total cost'][11]-138.3,ls1.z['total cost'][1],75,249,129,35,ls1.z['total cost'][3]-38.4,ls1.z['total cost'][8]-138.3,ls1.z['total cost'][10]-138.3,240,177,66,17.25,665,ls1.z['total cost'][7]-138.3,ls1.z['total cost'][13]-0,429.00,387.00],
-                 index=['u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','binding wire','paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','w_cement','v_tile','stone','fly ash bricks','f_tile','w_tile'])
+    rate = pd.Series([200,220,240,260,ls1.z['total cost'][4],ls1.z['total cost'][2]-38.4,ls1.z['total cost'][9]-138.3,ls1.z['total cost'][11]-138.3,ls1.z['total cost'][1],75,249,129,35,ls1.z['total cost'][3]-38.4,ls1.z['total cost'][8]-138.3,ls1.z['total cost'][10]-138.3,240,177,66,17.25,665,ls1.z['total cost'][7]-138.3,ls1.z['total cost'][13]-0,429.00,387.00],
+                 index=['u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','binding wire','paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','w_cement','v_tile','stone','F.A.bricks','f_tile','w_tile'])
 
     a = material_labour('bmfp',0)
     b = material_labour('rcc',0)
     c = material_labour('cc148',0)
-    d = material_labour('rscscolumn',22.6)
-    e = material_labour('rscsplinth',12.96)
-    f = material_labour('efhs',37.58)
-    g = material_labour('hysd',6.21)
-    h = material_labour('paint',0)
-    i = material_labour('wpcp',0)
-    j = material_labour('12cp(1:6)',0)
-    k = material_labour('sandfill',35.41)
+    d = material_labour('rscscolumn',0)
+    e = material_labour('rscsplinth',0)
+    f = material_labour('efhs',0)
+    g = material_labour('hysd',0)
+    h = material_labour('paint',.690)
+    i = material_labour('wpcp',84.66)
+    j = material_labour('12cp(1:6)',45.38)
+    k = material_labour('sandfill',0)
     l = material_labour('asf(1:2:4)',0)
-    m = material_labour('16cp(1:6)',0)
-    n = material_labour('rcc M-25',6.15)
+    m = material_labour('16cp(1:6)',39.28)
+    n = material_labour('rcc M-25',0)
     o = material_labour('rscsslab',0)
     p = material_labour('rscswalls',0)
     q = material_labour('20cp(1:4)',0)
-    r = material_labour('cc136',4.24)
+    r = material_labour('cc136',0)
     s = material_labour('cc124',0)
     t = material_labour('rscslintel',0)
     u = material_labour('20cp(1:6)',0)
@@ -304,7 +304,7 @@ if __name__ == "__main__":
     x = material_labour('vitrified',0)
     y = material_labour('ewhs',0)
     a1 = material_labour('rrhg',0)
-    a2 = material_labour('bmfps',11.1)
+    a2 = material_labour('bmfps',0)
     a3 = material_labour('bmfps1',0)
     a4 = material_labour('floor_tile',0)
     a5 =material_labour('wall_tile',0)
@@ -315,7 +315,7 @@ if __name__ == "__main__":
 
     z = z[['quantity','u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','binding wire',
            'paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','w_cement',
-           'v_tile','stone','fly ash bricks','f_tile','w_tile']]
+           'v_tile','stone','F.A.bricks','f_tile','w_tile']]
 
     result = z.sum(axis=0,numeric_only = True)
     #z1= result.iloc[1:10]
