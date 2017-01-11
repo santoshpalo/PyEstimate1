@@ -71,9 +71,9 @@ def material_labour(item,q):
         table.insert(0,'quantity',q)
         table['quantity']=table['quantity'].map('{:.2f}cum'.format)
     elif item == 'hysd':
-        c = ['u/s','s/s','masonI','binding wire']
+        c = ['u/s','s/s','masonI','b_wire']
         i = ['Reinforcement works']
-        d = {'u/s':[0.8*q],'s/s':[.044*q],'masonI':[0.3*q],'binding wire':[0.8*q]}
+        d = {'u/s':[0.8*q],'s/s':[.044*q],'masonI':[0.3*q],'b_wire':[0.8*q]}
         table = pd.DataFrame(d,index = i,columns = c)
         table.insert(0,'quantity',q)
         table['quantity']=table['quantity'].map('{:.2f}qtl'.format)
@@ -276,7 +276,7 @@ def material_labour(item,q):
     return table
 if __name__ == "__main__":
     rate = pd.Series([200,220,240,260,ls1.z['total cost'][4],ls1.z['total cost'][2]-38.4,ls1.z['total cost'][9]-138.3,ls1.z['total cost'][11]-138.3,ls1.z['total cost'][1],75,249,129,35,ls1.z['total cost'][3]-38.4,ls1.z['total cost'][8]-138.3,ls1.z['total cost'][10]-138.3,240,177,66,17.25,665,ls1.z['total cost'][7]-138.3,ls1.z['total cost'][13]-0,429.00,387.00],
-                 index=['u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','binding wire','paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','w_cement','v_tile','stone','F.A.bricks','f_tile','w_tile'])
+                 index=['u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','b_wire','paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','w_cement','v_tile','stone','F.A.bricks','f_tile','w_tile'])
 
     a = material_labour('bmfp',0)
     b = material_labour('rcc',1.63)
@@ -313,7 +313,7 @@ if __name__ == "__main__":
         append(m).append(n).append(o).append(p).append(q).append(r).append(s).append(t).append(u).append(v).append(w).\
         append(x).append(y).append(a1).append(a2).append(a3).append(a4).append(a5).append(a6)
 
-    z = z[['quantity','u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','binding wire',
+    z = z[['quantity','u/s','s/s','masonII','masonI','cement','sand','chips12','metal40','bricks','b_wire',
            'paint','primer','wpcp','sand(c)','chips10','chips20','generator','CCmixer','distemper','w_cement',
            'v_tile','stone','F.A.bricks','f_tile','w_tile']]
 
