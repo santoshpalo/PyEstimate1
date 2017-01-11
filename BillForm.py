@@ -79,27 +79,28 @@ class deduction():
 
 if __name__ == "__main__":
     print('\t\t\t\t\t\tSee Rule 109')
-    print('Comp. Voucher No.\tRUNNING ACCOUNT BILL\t Voucher No.')
+    print('Comp. Voucher No.\t  RUNNING ACCOUNT BILL\t Voucher No.')
     print('Date___________\t\t\t\t\t\tDate_______')
     print('\tTo be used for payment for work (Supplies actually measured)')
     print('-'*80)
-    print('Case Record No/Year:-112(2013-14)')
-    print('''Name of work:Construction of Additional Class room at Jagannath College at Baunsuni
+    print('Case Record No/Year:-391(2015-16)')
+    print('''Name of work:Completion of Nam Mandap at Uppar Pada Fabsi
 ''')
-    print('Head of Account:-M.L.A.L.A.D.(2012-13)')
+    print('Head of Account:-M.P.L.A.D.(2015-16)')
     print('Estimated Cost:-\u20B9300,000.00')
-    print('Serial number of this bill:-3rd F / A bill')
-    print('Date of commencement of the work:-______________\tM.B. No. :-572')
-    print('Date of completion of the work:-________________\tPage No. :-100-103')
+    print('Serial number of this bill:-3rd R / A bill')
+    print('Date of commencement of the work:-______________\tM.B. No. :-574')
+    print('Date of completion of the work:-________________\tPage No. :-86-90')
     print('Name of the executant/V.L.L.:-Departmental\n')
     print('\t\tACCOUNT OF WORK DONE OR SUPPLY MADE')
     print('-'*80)
-    bill = BillForm([[4.88,'Labour for reinforcement works','q',240.18],
-                     [5.12,d['hysd'],'qtl',3800],
-                     [5.22,'R.C.C. (1:1.5:3','cum',4872.24],
-                     [26.75,d['slab'],'l',305.67],
-                     [19.53,d['beam'],'kg',462.1],
-                    [33.55,d['20cp'],'sqm',140.79],
+    bill = BillForm([[1.63,'R.C.C. (1:1.5:3','cum',5054.31],[6.91,d['beam'],'kg',396.62],[5.12,d['slab'],'l',275.11],
+                    [1.4,'Labour for reinforcement works','q',246.58],
+                     [1.47,d['hysd'],'qtl',3800],
+                     
+                     
+                     
+                    [7.17,d['20cp'],'sqm',120.23],
                     #===========================================================
                     # [39.28,d['16cp'],'sqm',119.57],
                     # [84.66,d['wpcp'],'sqm',12.72],
@@ -168,8 +169,8 @@ if __name__ == "__main__":
                        # [35.44,'diff cost of c.b.g & h.b.g metal','cum',238]
                        #========================================================
                      
-                    [1,d['cess'],'',370],
-                    [1,d['contingency'],'',370], ] )            
+                    [1,d['cess'],'',200],
+                    [1,d['contingency'],'',200], ] )            
                     
                     
                     #===========================================================
@@ -194,20 +195,20 @@ if __name__ == "__main__":
                     
                     
     bill.body()
-    print('\t\t\t\tAdd amount of 2nd R / A bill = \u20B9263984.00')
-    print('\t\t\t\t\t\tTotal Amount = \u20B93,32,691.00.00')
+    print('\t\t\t\tAdd amount of 2nd R / A bill = \u20B91,94,541.00')
+    print('\t\t\t\t\t\tTotal Amount = \u20B92,14,123.00.00')
     print('\t\t\t\tTotal Amount limited to = \u20B93,00,000.00')
-    print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B92,63,964.00')
-    print('\t\t\t\tAmount of 2nd R / A bill = \u20B936,036.00')
+    print('\t\t\tDeduct amount of 1st R / A bill = (-)\u20B91,94,541.00')
+    print('\t\t\t\tAmount of 2nd R / A bill = \u20B919,582.00')
     #===========================================================================
     # print('\t\t\t\tDeduct less amount @ .02 % = \u20B9223.00')
     # print('\t\t\t\tGross payable amount =\u20B911,17,160.00    ')
     #===========================================================================
-    x = deduction([['E.G.B.',174],
-                   ['VAT',270],
-                   ['Royalty',767],
-                   ['Cess',370],
-                   ['W.C.',370],
+    x = deduction([['E.G.B.',53],
+                   ['VAT',85],
+                   ['Royalty',237],
+                   ['Cess',200],
+                   ['W.C.',200],
                    ['Income Tax',0]])
     x.deduct()
     print('-'*80)
