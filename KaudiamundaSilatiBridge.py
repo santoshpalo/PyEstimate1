@@ -1,4 +1,4 @@
-import pandas as pd
+#import pandas as pd
 import numpy as np
 import items as it
 import ClassLibrary as cl 
@@ -44,7 +44,7 @@ Bagbahali Road to Silati Road''')
     footing.rate=82.08
     footing.vArea()
     print(it.items['rscs_walls'])
-    wall=cl.Quantity([['outer side of wall',1,6.1,.93+1.2],
+    wall=cl.Quantity([['outer side of wall',2,6.1,.93+1.2],
                       ['inside walls',2,6.1,1.2+.3],
                       ['both sides',2*2,mean([1.5,.9]),1.2]])
     wall.rate=387.08
@@ -60,9 +60,7 @@ Bagbahali Road to Silati Road''')
                                ['stirrups in bearing plate',2*42,2.16,.89],
                                ['main bars in dart walls',42,2.22,0.62],
                                ['extra main bars in dart wall',42,1.1,0.89]])
-    #===========================================================================
-    # print(reinforcement.reinforcement()['y0'],reinforcement.reinforcement()['y1'])
-    #===========================================================================
+    print(reinforcement.reinforcement()['y0'],reinforcement.reinforcement()['y1'])
     print('\t\t\t\t4.50q @ Rs.4324.45/ q = Rs.19460.00 ')
     print('\n\t\t\t\t SECTION-B (Concrete Road)')
     print(it.items['efhs'])

@@ -16,25 +16,25 @@ if __name__ == "__main__":
     rcc=cl.Quantity([['slab',1,8.05,4.35,0.1],
                      ['beam',1,3.5,0.25,0.25],
                      ['roof bend',1,6.5*2+3.5*2,0.25,0.15]])
-    rcc.rate=100
+    rcc.rate=5068.16
     rcc.volume()
     print(it.items['20cp(1:4)'])
     grading=cl.Quantity([['slab top',1,8.05,4.35]])
-    grading.rate=100
+    grading.rate=120.64
     grading.hArea()
     print(it.items['rscs_slab'])
     slab=cl.Quantity([['slab area',1,8.05,4.35],
                       ['deduct beam',-1,3.5,0.25],
                       ['deduct roof bend',1,20,0.05]])
-    slab.rate=100
+    slab.rate=261.08
     slab.hArea()
     print(it.items['rscs_beam'])
     beam = cl.Quantity([['beam',1,3.5,0.75]])
-    beam.rate=100
+    beam.rate=383.34
     beam.vArea()
     print(it.items['CC(1:4:8)'])
     pcc=cl.Quantity([['sub base of floor',1,6.00-.13,3.5-.13,0.1]])
-    pcc.rate=100
+    pcc.rate=2665.96
     pcc.volume()
     print(it.items['hysd'])
     reinforcement=cl.Quantity([['beam main bar',5,4.00-.08,0.89],

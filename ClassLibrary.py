@@ -3,12 +3,15 @@ import math as mt
 class Quantity(object):
     def __init__(self,data,rate = 0,volumeC= ['description','no','length','breadth','height'],
                  vAreaC = ['description','no','length','height'],hAreaC = ['description','no','length','breadth'],
-                 tclC = ['description','no','length'],reinforcementC = ['description','no','length','coefficient']):
+                 tclC = ['description','no','length'],reinforcementC = ['description','no','length','coefficient'],
+                 tbaC=['description','no','length','breadth'],aVolumeC=['description','no','area','height']):
         self.data = data
         self.volumeC = volumeC
+        self.aVolumeC=aVolumeC
         self.vAreaC = vAreaC
         self.hAreaC = hAreaC
         self.tclC= tclC
+        self.tbaC= tbaC
         self.reinforcementC= reinforcementC
         self.rate = rate
         
@@ -18,6 +21,17 @@ class Quantity(object):
         total_volume = table['Volume'].sum()
         table['length']=table['length'].map('{:.2f}m'.format)
         table['breadth']=table['breadth'].map('{:.2f}m'.format)
+        table['height']=table['height'].map('{:.2f}m'.format)
+        table['Volume']=table['Volume'].map('{:.2f}cum'.format)
+        
+        print (table,'\n\t\t\t\t\t',
+                '{:.2f}cum'.format(total_volume),'@ \u20B9{:.2f}/cum'.format(self.rate),'= \u20B9{:.2f}'.format(round(total_volume*self.rate)))
+    def aVolume(self):
+        table = pd.DataFrame(self.data,columns=self.aVolumeC,index = range(1,len(self.data)+1))
+        table['Volume']=(table['no']*table['area']*table['height']).round(2)
+        total_volume = table['Volume'].sum()
+        table['area']=table['area'].map('{:.2f}sqm'.format)
+        
         table['height']=table['height'].map('{:.2f}m'.format)
         table['Volume']=table['Volume'].map('{:.2f}cum'.format)
         
@@ -55,6 +69,18 @@ class Quantity(object):
         table['total']=table['total'].map('{:.2f}m'.format)
         
         return {'y0':table,'y1':total_centre_line,'y2':total_centre_line}
+    def tba(self):
+        table = pd.DataFrame(self.data,columns=self.tbaC,index = range(1,len(self.data)+1))
+        table['total']=(table['no']*table['length']*table['breadth']).round(2)
+        total_builtup_area = table['total'].sum()
+        table['length']=table['length'].map('{:.2f}m'.format)
+        table['breadth']=table['breadth'].map('{:.2f}m'.format)
+        
+        
+        
+        table['total']=table['total'].map('{:.2f}sqm'.format)
+        
+        return {'y0':table,'y1':total_builtup_area,'y2':total_builtup_area}
     def reinforcement(self):
         table = pd.DataFrame(self.data,columns=self.reinforcementC,index = range(1,len(self.data)+1))
         table['total']=(table['no']*table['length']).round(2)
@@ -63,7 +89,7 @@ class Quantity(object):
         table['length']=table['length'].map('{:.2f}m'.format)
         table['weight']=table['weight'].map('{:.2f}kg'.format)        
         table['total']=table['total'].map('{:.2f}m'.format)        
-        return{'y0':table[table['coefficient'] == .395],'y1': total_weight, 'y2':table}
+        return{'y0':table[table['coefficient'] == 0.62],'y1': total_weight, 'y2':table}
     def ms_door_window(self):
         table = pd.DataFrame(self.data,columns=self.vAreaC,index = range(1,len(self.data)+1))
         table['weight']=(table['no']*table['length']*table['height']*40.35).round(2)

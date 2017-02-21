@@ -80,11 +80,13 @@ stacking the useful materials for reuse and removing the debris within 50m lead'
                       ['in the plinth',1,7.09-0.5,2.43,0.2]])
     sand.rate = 313.52
     sand.volume()
+    print(it.items['16cp(1:6)'])
     plaster16=cl.Quantity([['in the plinth',1,28.05,0.45],
-                           ['mid portion',4.57,0.3],
-                           ['mid portion 2',2.13,0.3]])
+                           ['mid portion',1,4.57,0.3],
+                           ['mid portion 2',1,2.13,0.3]])
     plaster16.rate = 119.57
     plaster16.vArea()
+    print(it.items['6cp(1:4)'])
     plaster6=cl.Quantity([['R.C.C. circular pillars',12*mt.pi,0.3,2.5],
                           ['inside mandap beams',4,2.45,0.25+0.2+0.38],
                           ['circular beams bottom slab',2*mt.pi,4.02,0.25+0.15+0.25],
@@ -93,6 +95,23 @@ stacking the useful materials for reuse and removing the debris within 50m lead'
                           ['edges of top slab',1,12.75,0.12]])
     plaster6.rate = 93.91
     plaster6.vArea()
+    print('''Finishing walls with water proofing cement paint of approved shade on new work
+two coat to give an even shade exculding cost of paint.''')
+    print('\n Area of bottom slab = 193.92 sqm')
+    print('Area of top slab =27.42 sqm ')
+    print('Area of 16 mm thick plaster = 12.62')
+    print('Area of 6mm thick plaster = 60.11 sqm')
+    print('Labour charges for water proofing cement paint =\n\t\t\t\t 294.07sqm @ Rs.12.72/sqm = Rs.3741.00')
+    print('Cost of water proofing cement paint =73.51kg @ Rs.35.00/kg = Rs.2373.00')
+    print('Provisional cost for elctrification =\u20B910000.00')
+    print('Cess for welfare of labouirers = \u20B91,000.00')
+    print('Work contingency = \u20B91,000.00')
+    print('Display board and photograph= \u20B9500.00')
+    #===========================================================================
+    # print(2579+3748+5720+1749+1179+3981+6485+138+5243+7372+4629+28892+16968+12500)
+    #===========================================================================
+    print('-'*80)
+    fl.signature(100000,'One lakh rupees only',1, '')
     
     
     

@@ -585,7 +585,7 @@ def costMaterial(t,d1,i1,c=['quantity','rate']):
     table1['rate']=table1['rate'].map('Rs.{:.2f}'.format)
     table1['amount']=table1['amount'].map('Rs.{:.2f}'.format)
     print ('\n',t,'\n',table1,'\n\tCost of different materials= ',color.BOLD+'Rs.{:.2f}'.format(table1.tamount)+color.END)
-def gradedconcrete(x):
+def gradedrcc(x):
     if x==1:
         t='''R.C.C. work of M-15 grade with 20mm and down grade black hard granite
 (crusherbroken) stone chips including hoisting and laying Data for 1 cum'''
@@ -625,12 +625,45 @@ def gradedconcrete(x):
     tamount = table.amount.sum()
     table['rate']=table['rate'].map('Rs.{:.2f}'.format)
     table['amount']=table['amount'].map('Rs.{:.2f}'.format)
+    print (t,'\n',table,'\nRate of 1 cum of M-2  graded concrete=',color.BOLD+'Rs.{:.2f}'.format(tamount)+color.END)
+def gradedpcc(x):
+    if x==1:
+        t='''Plain Cement Concrete in Open Foundation complete as per Drawing and Technical
+Specifications.PCC Grade M15 Unit = cum Taking output = 15 cum'''
+        m=4.13
+    elif x==2:
+        t='''Plain Cement Concrete in Open Foundation complete as per Drawing and Technical
+Specifications.PCC Grade M20 Unit = cum Taking output = 15 cum'''
+        m=5.16
+    else:
+        t=''''''
+        m=0
+
+
+    table1=pd.DataFrame({'quantity':[20.0/15,0.86/15,1.5/15],'rate':[us,220.0,240.0]},index = ['unskilled labour','semiskilled labour','mason II'],columns=['quantity','rate'])
+    table2=pd.DataFrame({'quantity':[10*m/15],'rate':[ls1.z['total cost'][4]]},index = ['cement'],columns=['quantity','rate'])
+    table3=pd.DataFrame({'quantity':[8.1/15,4.05/15,1.35/15,6.75/15],'rate':[ls1.z['total cost'][11],ls1.z['total cost'][10],ls1.z['total cost'][8],ls1.z['total cost'][2]]},index = ['40mm cbg metal','20mm chips','10mm chips','sand'],columns=['quantity','rate'])
+    table4=pd.DataFrame({'quantity':[0.4],'rate':[177,240]},index = ['concrete mixer','generator'],columns=['quantity','rate'])
+    table1['amount']=table1['quantity']*table1['rate'].round(2)
+    table2['amount']=table2['quantity']*table2['rate'].round(2)
+    table3['amount']=table3['quantity']*table3['rate'].round(2)
+    table4['amount']=table4['quantity']*table4['rate'].round(2)
+    table1['quantity']=table1['quantity'].map('{:.2f}no'.format)
+    table2['quantity']=table2['quantity'].map('{:.4f}qtl'.format)
+    table3['quantity']=table3['quantity'].map('{:.2f}cum'.format)
+    table4['quantity']=table4['quantity'].map('{:.1f}hr'.format)
+
+    table=table1.append(table2).append(table3).append(table4)
+    tamount = table.amount.sum()
+    table['rate']=table['rate'].map('Rs.{:.2f}'.format)
+    table['amount']=table['amount'].map('Rs.{:.2f}'.format)
     print (t,'\n',table,'\nRate of 1 cum of M-20 graded concrete=',color.BOLD+'Rs.{:.2f}'.format(tamount)+color.END)
+
 #Reinforcement works
 def reinforcement():
     t='''Supplying ,fitting and placing uncoated HYSD bar reinforcement complete
 as per drawing and technical specification.Unit - 1 qtl Taking Output = 1 qtl'''
-    table1=pd.DataFrame({'quantity':[1.05],'rate':[4000+ls1.z['conveyance'][5]]},index = ['uncoated HYSD bars'],columns=['quantity','rate'])
+    table1=pd.DataFrame({'quantity':[1.05],'rate':[ls1.z['total cost'][5]]},index = ['uncoated HYSD bars'],columns=['quantity','rate'])
     table2=pd.DataFrame({'quantity':[0.8],'rate':[75.0]},index = ['binding wire'],columns=['quantity','rate'])
     table3=pd.DataFrame({'quantity':[.8,.044,.3],'rate':[us,220,260]},index = ['unskilled labour','semiskilled labour','mason I'],columns=['quantity','rate'])
 
@@ -904,19 +937,45 @@ def volumeTrapezoidal(m,i,r,c=['Description','no','length','top width','bottom w
 
     print (table1,'\n','{:.2f}cum'.format(tvolume),'@ Rs.{:.2f}'.format(r),' = Rs.{:.2f}'.format(r*tvolume))
 
-def moorum(x):
+def road(x):
     if x == 1:
+        t='''Labour for laying sub-base in layers not exceeding 100mm watering and compacting
+to the required density in O.M.C with PRR but excluding cost and conveyance
+of sub base materials'''
         table1 = pd.DataFrame({'quantity': [2.5/2.83], 'rate': [us]}, index=['unskilled labour'],
                               columns=['quantity', 'rate'])
+        table2 = pd.DataFrame({'quantity': [8/425], 'rate': [339]}, index=['H/R charges of P.R.R.'],
+                              columns=['quantity', 'rate'])
+    elif x == 2:
+        t='''Labour for spreading metal and packing the voids with small stones and hand
+packing the same to proper camber including conveying spreading of filler
+materials and filling the interstices by spreading the same over the surface,
+watering and consolidation with PRR including hire and running charges of
+PRR complete but excluding cost and conveyance of metal and filler materials'''
+        table1 = pd.DataFrame({'quantity': [4/2.83], 'rate': [us]}, index=['unskilled labour'],
+                              columns=['quantity', 'rate'])
+        table2 = pd.DataFrame({'quantity': [8/42], 'rate': [339]}, index=['H/R charges of P.R.R.'],
+                              columns=['quantity', 'rate'])
+    
     else:
+        t='''Labour for laying sub-base in layers not exceeding 100mm watering and compacting
+but excluding cost and conveyance of sub base materials'''
         table1 = pd.DataFrame({'quantity': [1/2.83], 'rate': [us]}, index=['unskilled labour'],
+                              columns=['quantity', 'rate'])
+        table2 = pd.DataFrame({'quantity': [0], 'rate': [us]}, index=['H/R charges of P.R.R.'],
                               columns=['quantity', 'rate'])
 
     table1['amount'] = table1['quantity'] * table1['rate'].round(2)
+    table2['amount'] = table2['quantity'] * table2['rate'].round(2)
+    total='\u20B9{:.2f}'.format(round(table1.append(table2)['amount'].sum(),2))
     table1['quantity'] = table1['quantity'].map('{:.2f}no'.format)
     table1['rate'] = table1['rate'].map('Rs.{:.2f}'.format)
     table1['amount'] = table1['amount'].map('Rs.{:.2f}'.format)
-    return table1
+    
+    table2['quantity'] = table2['quantity'].map('{:.5f}hour'.format)
+    table2['rate'] = table2['rate'].map('Rs.{:.2f}'.format)
+    table2['amount'] = table2['amount'].map('Rs.{:.2f}'.format)
+    print('\n',t,'\n', table1.append(table2),'\n\t\t\t\tTotal cost for 1 cum = ',total)
 def flooring():
     t='''Artificial stone flooring with c.c.(1:2:4) using 12mm size c.b.g. chips
 including cost,conveyance and royalty etc. complete'''
