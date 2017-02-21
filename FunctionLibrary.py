@@ -201,6 +201,8 @@ def area(t,r,d,i,c=['area']):
 def foundation(x):
     if x == 1:
         table1=pd.DataFrame({'quantity':[0.43*1.2],'rate':[us]},index=['unskilled labour'],columns=['quantity','rate'])
+    elif x == 2:
+        table1=pd.DataFrame({'quantity':[0.44],'rate':[us]},index=['unskilled labour'],columns=['quantity','rate'])
     else:
         table1 = pd.DataFrame({'quantity': [0.43], 'rate': [us]}, index=['unskilled labour'],
                               columns=['quantity', 'rate'])
@@ -851,7 +853,7 @@ def signature(cost,text,x,gp):
             cost), '\n', text, '\n\n\n\t\t\t\t\tAssistant Engineer', \
             '\n\t\t\t\t\tBinka Block Office', '\n\t\t\tPrepared by', '\n\n\n\t\t\t\t\tJunior Engineer',\
             '\n\t\t\t\t\tBinka Block Office', '\nThe estimate is administratively approved for', ' Rs.{:.2f}'.format(
-            cost), '\n', text, '\n\n\n\t\t\t\t\tSarpanch', '\n\t\t\t ',gp)
+            cost), '\n', text, '\n\n\n\t\t\t\t\tSarpanch', '\n\t\t\t\t ',gp)
     elif x ==5:
         print ('The estimate is technically sanctioned for', ' Rs.{:.2f}'.format(
             cost), '\n', text, '\n\n\n\t\t\t\t\tExecutive Engineer', \
